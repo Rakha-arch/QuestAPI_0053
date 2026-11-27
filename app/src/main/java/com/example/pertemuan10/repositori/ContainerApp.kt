@@ -16,12 +16,12 @@ interface ContainerApp {
 class DefaultContainerApp : ContainerApp{
     private  val baseurl = "http://10.0.2.2/umyTI/"
 
-    private val logging = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
-    private val klien = OkHttpClient.Builder()
-        .addInterceptor(logging)
-        .build()
+//    val logging = HttpLoggingInterceptor().apply {
+//        level = HttpLoggingInterceptor.Level.BODY
+//    }
+//    val klien = OkHttpClient.Builder()
+//        .addInterceptor(logging)
+//        .build()
 
     private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(baseurl)
@@ -32,7 +32,7 @@ class DefaultContainerApp : ContainerApp{
                 isLenient = true
             }.asConverterFactory("application/json".toMediaType())
         )
-        .client(klien)
+//        .client(klien)
         .build()
 
     private val retrofitService : ServiceApiSiswa by lazy {
